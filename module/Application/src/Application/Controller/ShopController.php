@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Contrôleur Index.
+ * Contrôleur Boutique.
  *
  * @category   Application
  * @package    Application\Controller
@@ -15,38 +15,23 @@ use Application\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 /**
- * Contrôleur Index.
+ * Contrôleur Boutique.
  *
  * @category   Application
  * @package    Application\Controller
  * @copyright  Copyright (c) 2015, presteus.ovh
  * @license    http://www.wtfpl.net WTFPL
  */
-class IndexController extends AbstractActionController {
+class ShopController extends AbstractActionController {
 
     public function indexAction() {
         
-        return new ViewModel();
-    }
-    
-    public function informationAction() {
+        $articleRepository = $this->locateRepository('Application\Domain\Entity\Article');
         
-        return new ViewModel();
-    }
-    
-    public function teamAction() {
-        
-        return new ViewModel();
-    }
-    
-    public function rankingAction() {
-        
-        return new ViewModel();
-    }
-    
-    public function voteAction() {
-        
-        return new ViewModel();
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('articles', $articleRepository->findAll());
+
+        return $viewModel;
     }
 
 }

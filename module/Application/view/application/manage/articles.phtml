@@ -1,0 +1,62 @@
+<section class="inner-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 sec-title colored text-center">
+                <h2><?= $this->translate('Manage Articles') ?></h2>
+                <ul class="breadcumb">
+                    <li><a href="/"><?= $this->translate('Home') ?></a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/application/manage/index"><?= $this->translate('Administration') ?></a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><span><?= $this->translate('Manage Articles') ?></span></li>
+                </ul>
+                <span class="decor"><span class="inner"></span></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec-padding donation-section">
+    <div class="container">
+        <h2 class="text-thm"><?= $this->translate('Manage Articles') ?></h2>
+        <hr>
+        <div class="form-outer">
+            <div class="table-responsive">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th><?= $this->translate('ID') ?></th>
+                            <th><?= $this->translate('Type') ?></th>
+                            <th><?= $this->translate('Name') ?></th>
+                            <th><?= $this->translate('Price') ?></th>
+                            <th><?= $this->translate('Actions') ?></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->articles as $article): ?>
+                            <tr>
+                                <td><?= $article->getId() ?></td>
+                                <td><?= $article->getType() ?></td>
+                                <td><?= $article->getName() ?></td>
+                                <td><?= $article->getPrice() ?></td>
+                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a class="btn btn-default"
+                                           href="/application/article/edit/<?php $article->getId() ?>">
+                                            <?= $this->translate('Edit') ?>
+                                        </a>
+                                        <a class="btn btn-danger"
+                                           href="/application/article/delete/<?php $article->getId() ?>">
+                                            <?= $this->translate('Delete') ?>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

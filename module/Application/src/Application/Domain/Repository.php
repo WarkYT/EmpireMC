@@ -85,7 +85,7 @@ abstract class Repository extends EntityRepository {
      * @access public
      */
     public function findOptions($field = '', $emptyValue = '', array $criteria = []) {
-        
+
         return $this->findOptionsGroup($field, null, $emptyValue, $criteria);
     }
 
@@ -144,7 +144,7 @@ abstract class Repository extends EntityRepository {
     }
 
     /**
-     * Libérer le gestionnare d'entité.
+     * Libérer le gestionnaire d'entité.
      * 
      * @access public
      */
@@ -238,6 +238,28 @@ abstract class Repository extends EntityRepository {
     protected function locateRepository($entityName) {
 
         return $this->getEntityManager()->getRepository($entityName);
+    }
+
+    public function findAll($offset = null, $limit = null) {
+
+        if ($offset !== null) {
+            $em = $this->getEntityManager();
+            $qb = $em->createQueryBuilder();
+
+            $alias = strtolower(substr($this->getClassName(), 0, 1));
+            
+            $qb->select($alias)
+                    ->from($this->getClassName(), $alias)
+                    ->setFirstResult($offset)
+                    ->setMaxResults($limit);
+
+            $query = $qb->getQuery();
+            $paginator = new \Doctrine\ORM\Tools\Pagination\Paginator($query);
+
+            return $paginator;
+        }
+        
+        return parent::findAll();
     }
 
 }

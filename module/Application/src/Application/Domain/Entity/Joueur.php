@@ -29,7 +29,7 @@ use Zend\Form\Annotation as FormMapping;
  * @property string $points Points
  * @property string $skin Skin
  * @property string $cloak Cape
- * @property string $vote Nombre de vote
+ * @property string $votes Nombre de vote
  * @property string $rewards Récompenses
  * @property string $loginAt Date de dernière connexion
  * @property string $votedAt Date du dernier vote
@@ -169,9 +169,9 @@ class Joueur extends Entity {
      * @var string Nombre de vote
      *
      * @FormMapping\Exclude()
-     * @ORMMapping\Column(name="vote", type="integer", precision=0, scale=0, nullable=false, unique=false)
+     * @ORMMapping\Column(name="votes", type="integer", precision=0, scale=0, nullable=false, unique=false)
      */
-    protected $vote;
+    protected $votes;
 
     /**
      * @var string Récompenses
@@ -218,11 +218,15 @@ class Joueur extends Entity {
 
     public function __construct() {
         $this->setPoints(0);
-        $this->setVote(0);
+        $this->setVotes(0);
     }
 
     public function getPseudo() {
         return $this->pseudo;
+    }
+
+    public function setPseudo($pseudo) {
+        $this->pseudo = $pseudo;
     }
 
     public function hashPassword() {
@@ -233,109 +237,105 @@ class Joueur extends Entity {
         return $this->password;
     }
 
-    public function getPasswordConfirm() {
-        return $this->passwordConfirm;
-    }
-
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getEmailConfirm() {
-        return $this->emailConfirm;
-    }
-
-    public function getRole() {
-        return $this->role;
-    }
-
-    public function getPoints() {
-        return $this->points;
-    }
-
-    public function getSkin() {
-        return $this->skin;
-    }
-
-    public function getCloak() {
-        return $this->cloak;
-    }
-
-    public function addVote() {
-        $this->vote++;
-        $this->setVotedAt(new \DateTime());
-    }
-
-    public function getVote() {
-        return $this->vote;
-    }
-
-    public function getRewards() {
-        return $this->rewards;
-    }
-
-    public function getLoginAt() {
-        return $this->loginAt;
-    }
-
-    public function getVotedAt() {
-        return $this->votedAt;
-    }
-
-    public function getCgu() {
-        return $this->cgu;
-    }
-
-    public function setPseudo($pseudo) {
-        $this->pseudo = $pseudo;
-    }
-
     public function setPassword($password) {
         $this->password = $password;
+    }
+
+    public function getPasswordConfirm() {
+        return $this->passwordConfirm;
     }
 
     public function setPasswordConfirm($passwordConfirm) {
         $this->passwordConfirm = $passwordConfirm;
     }
 
+    public function getEmail() {
+        return $this->email;
+    }
+
     public function setEmail($email) {
         $this->email = $email;
+    }
+
+    public function getEmailConfirm() {
+        return $this->emailConfirm;
     }
 
     public function setEmailConfirm($emailConfirm) {
         $this->emailConfirm = $emailConfirm;
     }
 
+    public function getRole() {
+        return $this->role;
+    }
+
     public function setRole($role) {
         $this->role = $role;
+    }
+
+    public function getPoints() {
+        return $this->points;
     }
 
     public function setPoints($points) {
         $this->points = $points;
     }
 
+    public function getSkin() {
+        return $this->skin;
+    }
+
     public function setSkin($skin) {
         $this->skin = $skin;
+    }
+
+    public function getCloak() {
+        return $this->cloak;
     }
 
     public function setCloak($cloak) {
         $this->cloak = $cloak;
     }
 
-    public function setVote($vote) {
-        $this->vote = $vote;
+    public function addVote() {
+        $this->votes++;
+        $this->setVotedAt(new \DateTime());
+    }
+
+    public function getVotes() {
+        return $this->votes;
+    }
+
+    public function setVote($votes) {
+        $this->votes = $votes;
+    }
+
+    public function getRewards() {
+        return $this->rewards;
     }
 
     public function setRewards($rewards) {
         $this->rewards = $rewards;
     }
 
+    public function getLoginAt() {
+        return $this->loginAt;
+    }
+
     public function setLoginAt(\DateTime $loginAt) {
         $this->loginAt = $loginAt;
     }
 
+    public function getVotedAt() {
+        return $this->votedAt;
+    }
+
     public function setVotedAt(\DateTime $votedAt) {
         $this->votedAt = $votedAt;
+    }
+
+    public function getCgu() {
+        return $this->cgu;
     }
 
     public function setCgu($cgu) {

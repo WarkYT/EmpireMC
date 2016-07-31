@@ -1,13 +1,16 @@
-
 <section class="inner-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12 sec-title colored text-center">
-                <h2><?= $this->translate('Register') ?></h2>
+                <h2><?= $this->translate('Edit Plugin') ?></h2>
                 <ul class="breadcumb">
                     <li><a href="/"><?= $this->translate('Home') ?></a></li>
                     <li><i class="fa fa-angle-right"></i></li>
-                    <li><span><?= $this->translate('Register') ?></span></li>
+                    <li><a href="/application/manage/index"><?= $this->translate('Administration') ?></a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/application/manage/plugins"><?= $this->translate('Manage Plugins') ?></a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><span><?= $this->translate('Edit Plugin') ?></span></li>
                 </ul>
                 <span class="decor"><span class="inner"></span></span>
             </div>
@@ -17,11 +20,9 @@
 
 <section class="sec-padding donation-section">
     <div class="container">
-        <h2 class="text-thm"><?= $this->translate('Register') ?></h2>
+        <h2 class="text-thm"><?= $this->translate('Edit Plugin') ?></h2>
         <hr>
         <div class="form-outer">
-            
-            <?= $this->partial('/application/partial/form.phtml'); ?>
             
         </div>
     </div>

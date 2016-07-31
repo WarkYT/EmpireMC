@@ -38,7 +38,7 @@
         <header class="header">
             <div class="container">
                 <div class="logo pull-left">
-                    <a href="index.html">
+                    <a href="/">
                         <img alt="Empire Minecraft"
                              src="<?= $this->basePath('/assets/images/resources/logo.png') ?>" />
                     </a>
@@ -73,7 +73,7 @@
         <nav class="mainmenu-area stricky">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-lg-3 col-md-12">
+                    <div class="col-xs-12 col-sm-12 col-lg-2 col-md-12">
                         <div class="donate-btn clearfix">
 
                             <a class="thm-btn pull-left" data-toggle="modal" href="#modal-donate-now">
@@ -85,14 +85,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                         <div class="navigation">
                             <div class="nav-header">
                                 <?=
                                         $this->navigation('navigation')->menu()
+                                        ->setAddClassToListItem(true)
                                         ->setMinDepth(0)
-                                        ->setMaxDepth(0)
-                                        ->setUlClass('nav navbar-nav navbar-right');
+                                        ->setMaxDepth(1);
                                 ?>
                             </div>
                         </div>

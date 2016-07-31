@@ -3,17 +3,11 @@
 return [
     'default' => [
         [
-            'label' => 'Accueil',
+            'id' => 'empiremc',
+            'label' => 'Empire MC',
             'route' => 'home',
             'resource' => 'Application\Controller\Index',
             'privilege' => 'index',
-        ],
-        [
-            'id' => 'empiremc',
-            'label' => 'Empire MC',
-            'uri' => '#',
-            'resource' => 'Application\Controller\Index',
-            'privilege' => 'empiremc',
             'pages' => [
                 [
                     'id' => 'information',
@@ -25,7 +19,7 @@ return [
                 [
                     'label' => "team",
                     'label' => "The team",
-                    'uri' => '/application/index/equipe',
+                    'uri' => '/application/index/team',
                     'resource' => 'Application\Controller\Index',
                     'privilege' => 'team'
                 ],
@@ -39,18 +33,11 @@ return [
             'privilege' => 'vote'
         ],
         [
-            'id' => 'vote1',
-            'label' => 'Vote1',
-            'uri' => '/application/index/vote1',
-            'resource' => 'Application\Controller\Index',
-            'privilege' => 'index'
-        ],
-        [
             'id' => 'shop',
-            'label' => 'Shop',
-            'uri' => '/application/index/shop',
-            'resource' => 'Application\Controller\Index',
-            'privilege' => 'shop'
+            'label' => 'Our Shop',
+            'uri' => '/application/shop/index',
+            'resource' => 'Application\Controller\Shop',
+            'privilege' => 'index'
         ],
         [
             'id' => 'ranking',
@@ -60,18 +47,18 @@ return [
             'privilege' => 'ranking'
         ],
         [
+            'id' => 'plugin',
+            'label' => 'Our Plugins',
+            'uri' => '/application/plugin/index',
+            'resource' => 'Application\Controller\Index',
+            'privilege' => 'index'
+        ],
+        [
             'id' => 'forum',
             'label' => 'Forum',
             'uri' => '/application/index/forum',
             'resource' => 'Application\Controller\Index',
             'privilege' => 'forum'
-        ],
-        [
-            'id' => 'plugins',
-            'label' => 'Our Plugins',
-            'uri' => '/application/index/plugins',
-            'resource' => 'Application\Controller\Index',
-            'privilege' => 'plugins'
         ],
         [
             'id' => 'login',
@@ -88,18 +75,32 @@ return [
             'privilege' => 'register'
         ],
         [
-            'id' => 'administration',
+            'id' => 'manage',
             'label' => 'Administration',
-            'uri' => '/application/gestion',
-            'resource' => 'Application\Controller\Gestion',
+            'uri' => '/application/manage/index',
+            'resource' => 'Application\Controller\Manage',
             'privilege' => 'index',
             'pages' => [
                 [
                     'id' => 'players',
-                    'label' => 'Consult players',
-                    'uri' => '/application/gestion/players',
-                    'resource' => 'Application\Controller\Gestion',
+                    'label' => 'Manage Players',
+                    'uri' => '/application/manage/players',
+                    'resource' => 'Application\Controller\Manage',
                     'privilege' => 'players'
+                ],
+                [
+                    'id' => 'articles',
+                    'label' => 'Manage Articles',
+                    'uri' => '/application/manage/articles',
+                    'resource' => 'Application\Controller\Manage',
+                    'privilege' => 'articles'
+                ],
+                [
+                    'id' => 'plugins',
+                    'label' => 'Manage Plugins',
+                    'uri' => '/application/manage/plugins',
+                    'resource' => 'Application\Controller\Manage',
+                    'privilege' => 'plugins'
                 ],
             ],
         ],
