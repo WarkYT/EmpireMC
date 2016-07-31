@@ -1,0 +1,47 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<?= $this->form()->openTag($form) ?>
+
+<div class="form-portlet">
+    <div class="row clearfix">
+        <?php
+        foreach ($form->getElements() as $element) {
+
+            switch (true) {
+                case $element instanceof Zend\Form\Element\Checkbox:
+                    echo '<div class="', $element->getOption('twb-form-group-size'), '">';
+                    echo $this->formElement($element);
+                    echo ' <span class="field-label inline">', $this->formLabel($element);
+                    if ($element->getAttribute('required')) {
+                        echo '<span class="required"> *</span>';
+                    }
+                    echo '</span>';
+                    echo '</div>';
+                    break;
+                case $element instanceof Zend\Form\Element\Hidden:
+                    echo $this->formRow($element);
+                    break;
+                case $element instanceof Zend\Form\Element\Submit:
+                    echo '<div class="', $element->getOption('twb-form-group-size'), '">';
+                    echo $this->formElement($element);
+                    echo '</div>';
+                    break;
+                default:
+                    echo '<div class="form-group ', $element->getOption('twb-form-group-size'), '">';
+                    echo '<div class="field-label">', $this->formLabel($element);
+                    if ($element->getAttribute('required')) {
+                        echo '<span class="required"> *</span>';
+                    }
+                    echo '</div>';
+                    echo $this->formElement($element);
+                    echo '</div>';
+            }
+        }
+        ?>
+    </div>
+</div>
+
+<?= $this->form()->closeTag() ?>

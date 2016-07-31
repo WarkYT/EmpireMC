@@ -1,0 +1,89 @@
+
+<?php if (!empty($this->notifier)): ?>
+
+    <?php if (isset($this->notifier['message'])): ?>
+        <?php foreach ($this->notifier['message'] as $info): ?>
+            <div class="alert alert-info no-bottom" data-notifier="message" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Information !') ?></strong>
+                <div data-notifier-text>
+                    <?= $info ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($this->notifier['info'])): ?>
+        <?php foreach ($this->notifier['info'] as $info): ?>
+            <div class="alert alert-info no-bottom" data-notifier="info" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Information !') ?></strong>
+                <div data-notifier-text>
+                    <?= $info ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($this->notifier['success'])): ?>
+        <?php foreach ($this->notifier['success'] as $success): ?>
+            <div class="alert alert-success no-bottom" data-notifier="success" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Succès !') ?></strong>
+                <div data-notifier-text>
+                    <?= $success ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($this->notifier['warning'])): ?>
+        <?php foreach ($this->notifier['warning'] as $warning): ?>
+            <div class="alert alert-warning no-bottom" data-notifier="warning" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Attention !') ?></strong>
+                <div data-notifier-text>
+                    <?= $warning ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($this->notifier['error'])): ?>
+        <?php foreach ($this->notifier['error'] as $error): ?>
+            <div class="alert alert-danger no-bottom" data-notifier="error" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Erreur !') ?></strong>
+                <div data-notifier-text>
+                    <?= $error ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($this->notifier['form'])): ?>
+        <?php foreach ($this->notifier['form'] as $form): ?>
+            <div class="alert alert-danger no-bottom" data-notifier="error" style="display:none;">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong data-notifier-title><?= $this->translate('Erreur de formulaire !') ?></strong>
+                <div data-notifier-text>
+                    <dl>
+                        <?php foreach ($form as $name => $fieldMessages): ?>
+                            <dt><?= $this->translate('Champ') ?> « <?= $name ?> »</dt>
+                            <?php foreach ($fieldMessages as $messages): ?>
+                                <?php if (is_string($messages)): ?>
+                                    <dd><?= $messages ?></dd>
+                                <?php else: ?>
+                                    <?php foreach ($messages as $message): ?>
+                                        <dd><?= $message ?></dd>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </dl>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+<?php endif; ?>
